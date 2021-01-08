@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+    @model Models.DanhSachPhong
+    {
+        ViewData["Title"] = "Update";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+@*@section jsFooter{
+    <script>
+
+            $("#btnImage").on('click', function (e) {
+                e.preventDefault();
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (url) {
+                    $("#txtImage").val(url);
+                    $('#imgAvata').attr('src', url);
+                }
+                finder.popup();
+            });
+
+    </script>
+}*@
+<div class="content">
+    <h2 class="text-info">Sửa thông tin danh sach phong </h2>
+    @using (Html.BeginForm("Sua", "danh-sach-phong", FormMethod.Post))
+    {
+        if (ViewData["successMsg"] != null)
+        {
+            <div class="text-success">
+                Sửa thông tin danh sach  phòng thành công
+            </div>
+        }
+        <div class="form-group">
+
+            @Html.HiddenFor(model => model.Id, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Tên nhóm phòng:</label>
+            @Html.TextBoxFor(model => model.SoPhong, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Du thuyền:</label>
+            @Html.DropDownListFor(model => model.NhomPhong_id, null, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Trạng thái:</label>
+            @Html.CheckBoxFor(model => model.TrangThai, new { @class = "" })
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Lưu </button>
+            <a href="/danh-sach-phong/danh-sach-danh-sach-phong" class="btn btn-danger">Quay lại</a>
+        </div>
+    }
+</div>
+
+
+
+
+
+
+
+
+

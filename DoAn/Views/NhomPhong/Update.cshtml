@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+    @model Models.NhomPhong
+    {
+        ViewData["Title"] = "Update";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<div class="content">
+    <h2 class="text-info">Sửa thông tin nhóm phòng</h2>
+    @using (Html.BeginForm("Sua", "nhom-phong", FormMethod.Post))
+    {
+        if (ViewData["successMsg"] != null)
+        {
+            <div class="text-success">
+                Sửa thông tin nhóm phòng thành công
+            </div>
+        }
+        <div class="form-group">
+
+            @Html.HiddenFor(model => model.Id, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Tên nhóm phòng:</label>
+            @Html.TextBoxFor(model => model.TenNhomPhong, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Du thuyền:</label>
+            @Html.DropDownListFor(model => model.DuThuyen_id,null, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Tên hạng phòng:</label>
+            @Html.DropDownListFor(model => model.HangPhong_id,null, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Tên kiểu giường:</label>
+            @Html.DropDownListFor(model => model.KieuGiuong_id,null, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Gía:</label>
+            @Html.TextBoxFor(model => model.Gia, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Trạng thái:</label>
+            @Html.CheckBoxFor(model => model.TrangThai, new { @class = "" })
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Lưu </button>
+            <a href="/kieu-giuong/danh-sach-kieu-giuong" class="btn btn-danger">Quay lại</a>
+        </div>
+    }
+</div>
+
+
+
+
+
+
+

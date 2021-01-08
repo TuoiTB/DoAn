@@ -1,0 +1,46 @@
+﻿@model Models.DuThuyen
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<div class="content">
+    @using (Html.BeginForm("them-moi", "du-thuyen", FormMethod.Post))//sửa
+    {
+        if (ViewData["successMsg"] != null)
+        {
+            <div class="text-success">
+                Thêm du thuyền thành công
+            </div>
+        }
+        <div class="form-group">
+            <label for="name">Biển kiểm soát:</label>
+            @Html.TextBoxFor(model => model.BienKiemSoat, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Tên du thuyền:</label>
+            @Html.TextBoxFor(model => model.TenDuThuyen, new { @class = "form-control" })
+        </div>
+        <div class="form-group ">
+            <label for="name">Mã du thuyền:</label>
+            @Html.TextBoxFor(model => model.MaDuThuyen, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label  for="name">Mô tả:</label>
+            @Html.TextBoxFor(model => model.Mota, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Trạng thái:</label>
+            @Html.CheckBoxFor(model => model.TrangThai, new { @class = "" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Thêm</button>
+            <button type="reset" class="btn btn-danger">Xóa</button>
+        </div>
+    }
+</div>
+

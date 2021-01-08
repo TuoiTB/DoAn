@@ -1,0 +1,71 @@
+﻿@model Models.DuThuyen
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@*@section jsFooter{
+        <script>
+
+            $("#btnImage").on('click', function (e) {
+                e.preventDefault();
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (url) {
+                    $("#txtImage").val(url);
+                    $('#imgAvata').attr('src', url);
+                }
+                finder.popup();
+            });
+
+        </script>
+    }*@
+<div class="content">
+    <h2 class="text-info">Sửa thông tin du thuyền</h2>
+    @using (Html.BeginForm("Sua", "du-thuyen", FormMethod.Post))
+    {
+        if (ViewData["successMsg"] != null)
+        {
+            <div class="text-success">
+                Sửa thông tin du thuyền thành công
+            </div>
+        }
+        <div class="form-group">
+
+            @Html.HiddenFor(model => model.Id, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Biển kiểm soát:</label>
+            @Html.TextBoxFor(model => model.BienKiemSoat, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Tên du thuyền:</label>
+            @Html.TextBoxFor(model => model.TenDuThuyen, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Mã du thuyền:</label>
+            @Html.TextBoxFor(model => model.MaDuThuyen, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Mô tả:</label>
+            @Html.TextBoxFor(model => model.Mota, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Trạng thái:</label>
+            @Html.CheckBoxFor(model => model.TrangThai, new { @class = "" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Lưu </button>
+            <a href="/kieu-giuong/danh-sach-kieu-giuong" class="btn btn-danger">Quay lại</a>
+        </div>
+    }
+</div>
+
+
+
+
+
+
+

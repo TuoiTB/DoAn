@@ -1,0 +1,46 @@
+﻿@model Models.KhachHang
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<div class="content">
+    @using (Html.BeginForm("them-moi", "khach-hang", FormMethod.Post))//sửa
+    {
+        if (ViewData["successMsg"] != null)
+        {
+            <div class="text-success">
+                Thêm khách hàng thành công
+            </div>
+        }
+        
+        <div class="form-group">
+            <label for="name">Tên khách hàng:</label>
+            @Html.TextBoxFor(model => model.TenKhachHang, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Địa chỉ:</label>
+            @Html.TextBoxFor(model => model.DiaChi, new { @class = "form-control" })
+        </div>
+        <div class="form-group row">
+            <label class="col-4" for="name">Chứng minh nhân dân:</label>
+            @Html.EditorFor(model => model.CMND, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label class="col-4" for="name">Số điện thoại:</label>
+            @Html.EditorFor(model => model.SDT, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Trạng thái:</label>
+            @Html.CheckBoxFor(model => model.TrangThai, new { @class = "" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Thêm</button>
+            <a href="/khach-hang/danh-sach-khach-hang" class="btn btn-danger">Quay lại</a>
+        </div>
+    }
+</div>

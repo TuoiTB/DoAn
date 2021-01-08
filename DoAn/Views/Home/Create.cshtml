@@ -1,0 +1,34 @@
+﻿
+@{
+   
+}
+
+
+@*<div class="content">
+    @using (Html.BeginForm("Create", "Home", FormMethod.Post))
+    {
+        if (ViewData["successMsg"] != null)
+        {
+            <div class="text-success">
+                Thêm danh muc thành công
+            </div>
+        }
+        <div class="form-group">
+            <label for="name">Tên tác giả:</label>
+
+            @Html.TextBoxFor(model => model.TenTacGia, new { @class = "form-control" })
+        </div>
+        
+      
+        <div class="form-group">
+            <label for="name">Giới thiệu</label>
+
+            @Html.TextBoxFor(model => model.GioiThieu, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Thêm</button>
+            <button type="reset" class="btn btn-danger">Xóa</button>
+        </div>
+    }
+</div>*@

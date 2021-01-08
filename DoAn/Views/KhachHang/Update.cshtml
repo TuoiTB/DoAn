@@ -1,0 +1,64 @@
+﻿@model Models.KhachHang
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@*@section jsFooter{
+    <script>
+
+        $("#btnImage").on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $("#txtImage").val(url);
+                $('#imgAvata').attr('src', url);
+            }
+            finder.popup();
+        });
+
+    </script>
+}*@
+<div class="content">
+    <h2 class="text-info">Sửa thông tin khách hàng</h2>
+    @using (Html.BeginForm("Sua", "khach-hang", FormMethod.Post))
+    {
+        if (ViewData["successMsg"] != null)
+        {
+            <div class="text-success">
+                Sửa thông tin khách hàng thành công
+            </div>
+        }
+        <div class="form-group">
+
+            @Html.HiddenFor(model => model.Id, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Tên khách hàng:</label>
+            @Html.TextBoxFor(model => model.TenKhachHang, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Địa chỉ:</label>
+            @Html.TextBoxFor(model => model.DiaChi, new { @class = "form-control" })
+        </div>
+        <div class="form-group row">
+            <label class="col-4" for="name">Chứng minh nhân dân:</label>
+            @Html.EditorFor(model => model.CMND, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label class="col-4" for="name">Số điện thoại:</label>
+            @Html.EditorFor(model => model.SDT, new { @class = "form-control" })
+        </div>
+       
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Lưu </button>
+            <a href="/khach-hang/danh-sach-khach-hang" class="btn btn-danger">Quay lại</a>
+        </div>
+    }
+</div>
+
+
+
+

@@ -1,0 +1,34 @@
+﻿@model Models.HangPhong
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<div class="content">
+    @using (Html.BeginForm("them-moi", "hang-phong", FormMethod.Post))//sửa
+    {
+        if (ViewData["successMsg"] != null)
+        {
+            <div class="text-success">
+                Thêm hạng phòng thành công
+            </div>
+        }
+        <div class="form-group">
+            <label for="name">Tên hạng phòng:</label>
+            @Html.TextBoxFor(model => model.TenHangPhong, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Trạng thái</label>
+            @Html.CheckBoxFor(model => model.TrangThai, new { @class = "" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Thêm</button>
+            <button type="reset" class="btn btn-danger">Xóa</button>
+        </div>
+    }
+</div>
+

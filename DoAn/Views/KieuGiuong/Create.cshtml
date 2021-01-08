@@ -1,0 +1,67 @@
+﻿@model Models.KieuGiuong
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<div class="content">
+    @using (Html.BeginForm("them-moi", "kieu-giuong", FormMethod.Post))//sửa
+    {
+        if (ViewData["successMsg"] != null)
+        {
+            <div class="text-success">
+                Thêm kiểu giường thành công
+            </div>
+        }
+        <div class="form-group">
+            <label for="name">Tên kiểu giường:</label>
+            @Html.TextBoxFor(model => model.TenKieuGiuong, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Trạng thái:</label>
+            @Html.CheckBoxFor(model => model.TrangThai, new { @class = "" })
+        </div>
+        <div class="form-group">
+            <button type="submit" id="createKG" class="btn btn-success">Thêm</button>
+            <a href="/khach-hang/danh-sach-khach-hang" class="btn btn-danger">Quay lại</a>
+        </div>
+    }
+</div>
+@*<script>
+    var trangthai = false;
+    $(document).ready(function () {
+        if ($('#TrangThai').is(':checked')) {
+            trangthai=true
+        }
+        $('#createKG').off('click').on('click', function () {
+            createKG()
+        })
+    })
+    function createKG() {
+        console.log('abc')
+        $.ajax({
+            url: "/kieu-giuong/them-moi",
+            method: "POST",
+            data: {
+                "TenKieuGiuong": $('#TenKieuGiuong'),
+                "TrangThai": trangthai
+            }
+            , success: function (response) {
+                if (response.data) {
+                    console.log(response.data)
+                    $("#row_" + id).slideUp();
+                    showAlert("thêm dữ liệu thành công", 2)
+
+                } else {
+                    showAlert("thêm thất bại")
+
+                }
+            }
+        })
+
+    }
+</script>*@
+
